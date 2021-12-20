@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Books</h1>
+<button class="btn btn-primary" type="button">Add Book</button>
+<hr>
+<div class="row">
+    {% for book in books %}
+    <dic class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{book.auther}}</h6>
+                <p class="card-text">ISBN: {{book.isbn}}<br>Publisher: {{book.publisher}}<br>Page: {{book.page}}</p>
+                <a href="updatebook/{{book.id}}" class="card-link">Update</a>
+                <a href="deletebook/{{book.id}}" class="card-link">Delete</a>
+            </div>
+        </div>
+    </dic>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<h1>Transactions</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book name</th>
+        <th scope="col">Member name</th>
+        <th scope="col">Fees</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for transaction in transactions %}
+    {% if transaction.destination == True %}
+    <tr class="table-success>
+        <th scope="row">1</th>
+        <td>{{transaction.borrowedBook}}</td>
+        <td>{{transaction.memberBorrower}}</td>
+        <td>{{transaction.fees}}</td>
+    </tr>
+    {% endif %}
+
+    {% if transaction.destination == False %}
+    <tr class="table-danger">
+        <th scope="row">1</th>
+        <td>{{transaction.borrowedBook}}</td>
+        <td>{{transaction.memberBorrower}}</td>
+        <td>{{transaction.fees}}</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+
+{% end block %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-3">
+
+    <h4>Update Member</h4>
+    <form action="/updatemember/{{member.id}}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="{{member.name}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label >ID Card</label>
+            <input type="text" name="idCard" value="{{member.idCard}}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Balance</label>
+            <input type="text" name="balance" value="{{member.balance}}" class="form-control">
+        </div>
+        <hr>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Update member</button>
+        </div>
+    </form>
+
+
+</div>
+{% endblock %}
